@@ -6,13 +6,15 @@
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
-  <div id="ruffle" style="width:800px;height:600px;"></div>
+  <div id="ruffle" style="width:1200px;height:900px;"></div>
   <script>
     window.RufflePlayer = window.RufflePlayer || {};
     window.addEventListener("DOMContentLoaded", () => {
       const ruffle = window.RufflePlayer.newest();
       const player = ruffle.createPlayer();
       document.getElementById("ruffle").appendChild(player);
+      player.style.width = "1200px";
+      player.style.height = "900px";
       player.load("data/akoopasrevenge2v2p9p0p4.swf");
     });
   </script>
