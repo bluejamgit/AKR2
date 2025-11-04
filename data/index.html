@@ -1,31 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>A Koopas Revenge 2</title>
+  <meta charset="utf-8">
+  <title>Play SWF Game</title>
+  <!-- Ruffle JS, loads from CDN -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-  <style>
-    body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #000;
-    }
-    #game-container {
-      width: 1200px;  /* 1.5x bigger */
-      height: 900px;  /* 1.5x bigger */
-    }
-  </style>
 </head>
 <body>
-  <div id="game-container"></div>
+  <div id="ruffle" style="width:800px;height:600px;"></div>
   <script>
-    const ruffle = window.RufflePlayer.newest();
-    const player = ruffle.createPlayer();
-    document.getElementById("game-container").appendChild(player);
-    player.load("akoopasrevenge2v2p9p0p4.swf");
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      document.getElementById("ruffle").appendChild(player);
+      player.load("game.swf"); // Update path if file is in assets/: "assets/game.swf"
+    });
   </script>
 </body>
 </html>
